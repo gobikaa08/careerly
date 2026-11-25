@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careerly Learning Roadmap – Interactive milestone-based learning curriculum tailored to your target tech career with curated resources, practice tasks, and portfolio projects.">
+  <title>Learning Roadmap – Careerly</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Careerly Homepage">
+        <img src="../assets/logo/logo.svg" alt="Careerly Logo" class="brand-logo-img" width="160" height="42">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="assessment.html" class="nav-link">Assessment</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="skill-gap.html" class="nav-link">Skill Gap</a></li>
+          <li><a href="roadmap.html" class="nav-link active">Roadmap</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="header-readiness-pill" class="badge badge-primary" style="cursor:pointer;" onclick="location.href='dashboard.html'">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+          <!-- Populated by JS -->
+        </button>
+
+        <a href="profile.html" class="btn btn-secondary btn-sm">
+          Profile
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="assessment.html" class="nav-link">Career Assessment</a></li>
+      <li><a href="careers.html" class="nav-link">Career Explorer</a></li>
+      <li><a href="skill-gap.html" class="nav-link">Skill Gap Analysis</a></li>
+      <li><a href="roadmap.html" class="nav-link active">Learning Roadmap</a></li>
+      <li><a href="resume.html" class="nav-link">Resume Improvement</a></li>
+      <li><a href="dashboard.html" class="nav-link">Job Readiness Dashboard</a></li>
+      <li><a href="profile.html" class="nav-link">Profile &amp; Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container" style="max-width: 980px;">
+      
+      <!-- Roadmap Header Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1.5rem; margin-bottom:2.5rem;">
+        <div>
+          <div class="badge badge-primary" style="margin-bottom:0.5rem;" id="roadmap-category-badge">Curriculum Track</div>
+          <h1 id="roadmap-title">Personalized Learning Roadmap</h1>
+          <p style="margin-top:0.5rem; font-size:1.05rem; max-width:620px;" id="roadmap-tagline">
+            Step-by-step sequential phases from foundations to production architecture. Check off milestones as you master topics.
+          </p>
+        </div>
+
+        <!-- Career Selector -->
+        <div class="card" style="padding:1rem 1.25rem; min-width:260px;">
+          <label for="roadmap-career-select" style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.35rem; display:block;">
+            Switch Roadmap Track:
+          </label>
+          <select id="roadmap-career-select" class="form-select" style="font-weight:600;">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Roadmap Overall Progress Card -->
+      <div class="card" style="margin-bottom: 2.5rem; padding: 1.75rem 2rem; background: var(--bg-surface); border: 2px solid var(--border-focus); box-shadow: var(--shadow-md);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em;">
+              OVERALL TRACK COMPLETION
+            </div>
+            <h3 style="font-size: 1.6rem; color: var(--text-main); margin-top: 0.2rem;" id="overall-progress-text">
+              0% Mastered
+            </h3>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <span class="badge badge-primary" id="completed-count-badge" style="font-size:0.85rem; padding:0.4rem 0.85rem;">
+              0 of 0 Milestones
+            </span>
+            <button class="btn btn-secondary btn-sm" id="reset-roadmap-progress-btn" title="Reset all checkboxes for this roadmap">
+              Reset Progress
+            </button>
+          </div>
+        </div>
+
+        <div class="progress-bar-container" style="height: 12px;">
+          <div class="progress-bar-fill" id="overall-progress-bar" style="width: 0%;"></div>
+        </div>
+
+        <!-- Filter Pill Controls -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 0.5rem;" id="roadmap-filter-pills">
+            <button class="badge badge-primary filter-pill active" data-filter="all" style="cursor:pointer; border:none;">All Topics</button>
+            <button class="badge filter-pill" data-filter="incomplete" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">In Progress</button>
+            <button class="badge filter-pill" data-filter="completed" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">Completed</button>
+          </div>
+
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Pro Tip: Click on resources to access official documentation.
+          </div>
+        </div>
+      </div>
+
+      <!-- Roadmap Timeline Container (Phases) -->
+      <div id="roadmap-phases-container" style="display: flex; flex-direction: column; gap: 2.5rem;">
+        <!-- Populated dynamically by roadmap.js -->
+      </div>
+
+      <!-- Milestone Celebration Modal -->
+      <div class="modal-overlay" id="milestone-modal" aria-hidden="true">
+        <div class="modal-content" style="max-width: 440px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 0.75rem;">🏆</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-main);">Phase Completed!</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="milestone-modal-text">
+            Outstanding progress. You have completed all milestones for this learning phase.
+          </p>
+          <button class="btn btn-primary" onclick="document.getElementById('milestone-modal').classList.remove('active')">
+            Continue Journey
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2026 Careerly – AI Career Navigator. All rights reserved.</div>
+        <div><a href="../index.html">Back to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/icons.js"></script>
+  <script src="../assets/vendor/chart.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/roadmap.js"></script>
+</body>
+</html>

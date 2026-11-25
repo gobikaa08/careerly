@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careerly – AI Career Navigator. Discover your optimal tech career path, analyze skill gaps, follow personalized learning roadmaps, and audit your resume with ATS precision.">
+  <title>Careerly – AI Career Navigator | Discover Your Path. Build Your Future.</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Careerly Homepage">
+        <img src="assets/logo/logo.svg" alt="Careerly Logo" class="brand-logo-img" width="160" height="42">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="pages/assessment.html" class="nav-link">Assessment</a></li>
+          <li><a href="pages/careers.html" class="nav-link">Careers</a></li>
+          <li><a href="pages/skill-gap.html" class="nav-link">Skill Gap</a></li>
+          <li><a href="pages/roadmap.html" class="nav-link">Roadmap</a></li>
+          <li><a href="pages/resume.html" class="nav-link">Resume</a></li>
+          <li><a href="pages/dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="header-readiness-pill" class="badge badge-primary" style="display:none; cursor:pointer;" onclick="location.href='pages/dashboard.html'">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+          <!-- Populated by JS -->
+        </button>
+
+        <a href="pages/assessment.html" class="btn btn-primary btn-sm nav-auth-btn">
+          Start Assessment
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="pages/assessment.html" class="nav-link">Career Assessment</a></li>
+      <li><a href="pages/careers.html" class="nav-link">Career Explorer</a></li>
+      <li><a href="pages/skill-gap.html" class="nav-link">Skill Gap Analysis</a></li>
+      <li><a href="pages/roadmap.html" class="nav-link">Learning Roadmap</a></li>
+      <li><a href="pages/resume.html" class="nav-link">Resume Improvement</a></li>
+      <li><a href="pages/dashboard.html" class="nav-link">Job Readiness Dashboard</a></li>
+      <li><a href="pages/profile.html" class="nav-link">Profile &amp; Settings</a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:1.5rem; border-top:1px solid var(--border-color); display:flex; flex-direction:column; gap:0.75rem;">
+      <a href="pages/assessment.html" class="btn btn-primary" style="width:100%;">Take Assessment</a>
+      <a href="pages/dashboard.html" class="btn btn-secondary" style="width:100%;">Open Dashboard</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" style="padding: 4.5rem 0 3.5rem; position: relative; overflow: hidden;">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge badge-primary" style="margin-bottom: 1.25rem;">
+            <span>✨</span> Next-Generation Career Guidance
+          </div>
+          <h1 style="margin-bottom: 1.25rem;">
+            Discover Your Path.<br>
+            <span style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Build Your Future.</span>
+          </h1>
+          <p style="font-size: 1.15rem; margin-bottom: 2rem; max-width: 520px; color: var(--text-muted); line-height: 1.6;">
+            Navigate high-growth tech careers with data-driven precision. Assess your strengths, bridge concrete skill gaps, follow curated milestone roadmaps, and audit your resume with ATS rigor.
+          </p>
+
+          <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+            <a href="pages/assessment.html" class="btn btn-primary btn-lg">
+              Start Free Assessment
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="pages/careers.html" class="btn btn-secondary btn-lg">
+              Explore Careers
+            </a>
+            <a href="pages/dashboard.html" class="btn btn-outline btn-lg" style="border-style:dashed;">
+              Demo Dashboard
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.88rem; color: var(--text-muted);">
+            <div style="display:flex; align-items:center; gap:0.4rem;">
+              <span style="color:var(--success); font-weight:bold;">✓</span> 100% Free &amp; Open
+            </div>
+            <div style="display:flex; align-items:center; gap:0.4rem;">
+              <span style="color:var(--success); font-weight:bold;">✓</span> Real Industry Benchmarks
+            </div>
+            <div style="display:flex; align-items:center; gap:0.4rem;">
+              <span style="color:var(--success); font-weight:bold;">✓</span> LocalStorage Auto-Sync
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-illustration-wrapper" style="position: relative;">
+          <img src="assets/images/hero-illustration.svg" alt="Careerly AI Career Navigation System" width="600" height="460" style="width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section style="background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 2.5rem 0;">
+      <div class="container stats-grid">
+        <div style="text-align: center; padding: 1rem;">
+          <div style="font-size: 2.25rem; font-weight: 800; color: var(--primary);">14+</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: var(--text-main); margin-top: 0.25rem;">High-Growth Career Paths</div>
+          <p style="font-size: 0.82rem; margin-top: 0.2rem;">Full-Stack, AI/ML, Cloud, Design &amp; Product</p>
+        </div>
+        <div style="text-align: center; padding: 1rem;">
+          <div style="font-size: 2.25rem; font-weight: 800; color: var(--secondary);">80+</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: var(--text-main); margin-top: 0.25rem;">Industry Core Skills</div>
+          <p style="font-size: 0.82rem; margin-top: 0.2rem;">Calibrated to real tech job descriptions</p>
+        </div>
+        <div style="text-align: center; padding: 1rem;">
+          <div style="font-size: 2.25rem; font-weight: 800; color: var(--accent);">32</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: var(--text-main); margin-top: 0.25rem;">ATS Resume Audit Points</div>
+          <p style="font-size: 0.82rem; margin-top: 0.2rem;">Action verbs, STAR metrics, and single-column formatting</p>
+        </div>
+        <div style="text-align: center; padding: 1rem;">
+          <div style="font-size: 2.25rem; font-weight: 800; color: var(--success);">100%</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: var(--text-main); margin-top: 0.25rem;">Privacy-Preserving</div>
+          <p style="font-size: 0.82rem; margin-top: 0.2rem;">All data stays locally in your browser</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 3.5rem;">
+          <div class="badge badge-secondary" style="margin-bottom: 0.75rem;">Your Journey</div>
+          <h2>How Careerly Accelerates Your Career</h2>
+          <p style="margin-top: 0.75rem; font-size: 1.05rem;">
+            A structured, 5-stage framework that turns ambition into an actionable roadmap and interview-ready job readiness.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+          <!-- Step 1 -->
+          <div class="card card-interactive" style="display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem;">
+                01
+              </div>
+              <span class="badge badge-primary">Match</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Interactive Assessment</h3>
+            <p style="font-size:0.9rem; line-height:1.5; margin-bottom:1.25rem; flex-grow:1;">
+              Answer 8 targeted questions on your problem-solving style, technical affinity, and goals to generate rule-based career matches.
+            </p>
+            <a href="pages/assessment.html" style="font-size:0.88rem; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+              Take Assessment →
+            </a>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="card card-interactive" style="display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--secondary-light); color:var(--secondary); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem;">
+                02
+              </div>
+              <span class="badge badge-secondary">Explore</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Career Explorer</h3>
+            <p style="font-size:0.9rem; line-height:1.5; margin-bottom:1.25rem; flex-grow:1;">
+              Inspect salary distributions, hiring demand, day-in-the-life tasks, and technical tool stacks across modern software disciplines.
+            </p>
+            <a href="pages/careers.html" style="font-size:0.88rem; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+              Browse Database →
+            </a>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="card card-interactive" style="display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--accent-light); color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem;">
+                03
+              </div>
+              <span class="badge badge-accent">Analyze</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Skill Gap Analysis</h3>
+            <p style="font-size:0.9rem; line-height:1.5; margin-bottom:1.25rem; flex-grow:1;">
+              Compare your current proficiency against benchmark requirements. Pinpoint exact missing skills and prioritize high-yield topics.
+            </p>
+            <a href="pages/skill-gap.html" style="font-size:0.88rem; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+              Analyze Gaps →
+            </a>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="card card-interactive" style="display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--success-light); color:var(--success); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem;">
+                04
+              </div>
+              <span class="badge badge-success">Learn</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Curated Roadmaps</h3>
+            <p style="font-size:0.9rem; line-height:1.5; margin-bottom:1.25rem; flex-grow:1;">
+              Follow phase-by-phase learning plans with high-quality free documentation, hands-on tasks, and production portfolio projects.
+            </p>
+            <a href="pages/roadmap.html" style="font-size:0.88rem; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+              View Roadmap →
+            </a>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="card card-interactive" style="display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--warning-light); color:var(--warning); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem;">
+                05
+              </div>
+              <span class="badge badge-warning">Launch</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Resume &amp; Dashboard</h3>
+            <p style="font-size:0.9rem; line-height:1.5; margin-bottom:1.25rem; flex-grow:1;">
+              Audit your resume against 32 ATS criteria and track overall readiness in a centralized dashboard with dynamic visual metrics.
+            </p>
+            <a href="pages/dashboard.html" style="font-size:0.88rem; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+              Open Dashboard →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Career Tracks Preview -->
+    <section style="padding: 4.5rem 0; background: var(--bg-subtle);">
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom:2.5rem;">
+          <div>
+            <div class="badge badge-primary" style="margin-bottom:0.5rem;">In-Demand Tech Roles</div>
+            <h2>Popular Career Trajectories</h2>
+            <p style="margin-top:0.4rem;">High-compensation disciplines actively hiring across tech hubs and remote teams.</p>
+          </div>
+          <a href="pages/careers.html" class="btn btn-secondary">
+            View All Careers
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div id="popular-careers-container" class="careers-grid">
+          <!-- Dynamically populated from CAREER_DATABASE -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Quick Quiz Preview Widget -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="card glass-panel" style="padding: 3rem 2.5rem; border: 2px solid var(--border-focus); position: relative;">
+          <div style="max-width: 720px; margin: 0 auto; text-align: center;">
+            <div class="badge badge-primary" style="margin-bottom: 1rem;">
+              <span>⚡</span> 30-Second Career Quick Pulse
+            </div>
+            <h2>Curious Which Role Fits You Best?</h2>
+            <p style="margin: 0.75rem 0 2rem; font-size: 1.05rem;">
+              Try this quick sample question right now to preview how Careerly's rule-based recommendation logic aligns your inclinations.
+            </p>
+
+            <div class="card" style="text-align: left; background: var(--bg-surface); padding: 1.75rem; margin-bottom: 1.5rem;">
+              <h4 style="margin-bottom: 0.5rem; color: var(--text-main);">
+                "Which problem sounds most exciting to tackle on a Tuesday morning?"
+              </h4>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem;" id="quick-quiz-options">
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                  <input type="radio" name="quick_quiz" value="full-stack-developer" checked>
+                  <div>
+                    <strong style="color: var(--text-main); font-size: 0.95rem;">Building an end-to-end web app</strong>
+                    <div style="font-size: 0.82rem; color: var(--text-muted);">Wiring a React UI to a secure REST API &amp; Postgres database</div>
+                  </div>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                  <input type="radio" name="quick_quiz" value="ai-ml-engineer">
+                  <div>
+                    <strong style="color: var(--text-main); font-size: 0.95rem;">Training an intelligent LLM agent</strong>
+                    <div style="font-size: 0.82rem; color: var(--text-muted);">Fine-tuning PyTorch models, vector retrieval, and prompt pipelines</div>
+                  </div>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                  <input type="radio" name="quick_quiz" value="ui-ux-designer">
+                  <div>
+                    <strong style="color: var(--text-main); font-size: 0.95rem;">Crafting design systems in Figma</strong>
+                    <div style="font-size: 0.82rem; color: var(--text-muted);">User journey testing, accessible typography, and micro-interactions</div>
+                  </div>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                  <input type="radio" name="quick_quiz" value="cloud-devops-engineer">
+                  <div>
+                    <strong style="color: var(--text-main); font-size: 0.95rem;">Automating cloud infrastructure</strong>
+                    <div style="font-size: 0.82rem; color: var(--text-muted);">Configuring Kubernetes, Terraform modules, and zero-downtime CI/CD</div>
+                  </div>
+                </label>
+              </div>
+
+              <div id="quick-quiz-result" style="margin-top: 1.5rem; display: none; padding: 1rem; border-radius: var(--radius-md); background: var(--primary-light);">
+                <!-- Populated dynamically -->
+              </div>
+
+              <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+                <button id="quick-quiz-submit" class="btn btn-primary btn-sm">
+                  Calculate Quick Match
+                </button>
+              </div>
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Ready for the full evaluation? The full 8-question assessment provides a 3-tier ranked report.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section style="padding: 5rem 0 6rem; background: var(--primary-gradient); color: #FFFFFF; text-align: center;">
+      <div class="container" style="max-width: 760px;">
+        <h2 style="color: #FFFFFF; font-size: 2.4rem; margin-bottom: 1rem;">
+          Ready to Chart Your Career Trajectory?
+        </h2>
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.15rem; margin-bottom: 2.25rem; line-height: 1.6;">
+          Join thousands of aspiring software engineers, AI developers, and tech specialists using Careerly to bridge skill gaps and land competitive roles.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="pages/assessment.html" class="btn" style="background:#FFFFFF; color:var(--primary); font-size:1.05rem; padding:0.9rem 2rem; box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+            Begin Career Assessment
+          </a>
+          <a href="pages/dashboard.html" class="btn" style="background:rgba(255,255,255,0.15); color:#FFFFFF; border:1px solid rgba(255,255,255,0.4); font-size:1.05rem; padding:0.9rem 1.8rem;">
+            Explore Dashboard
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo/logo.svg" alt="Careerly Logo" class="brand-logo-img" width="160" height="42">
+          <p>
+            <strong>Careerly – AI Career Navigator</strong><br>
+            Discover your path. Build your future. Intelligent, rule-based career guidance, skill gap analysis, and ATS-optimized readiness tracking.
+          </p>
+          <div style="margin-top:1.25rem; display:flex; gap:0.75rem;">
+            <button class="btn btn-secondary btn-sm" onclick="window.CareerlyStorage.loadDemoData()">
+              ⚡ Load Sample Demo
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="window.CareerlyStorage.resetAllData()">
+              🔄 Reset Progress
+            </button>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/assessment.html">Career Assessment</a></li>
+            <li><a href="pages/careers.html">Career Explorer</a></li>
+            <li><a href="pages/skill-gap.html">Skill Gap Analysis</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tools &amp; Modules</h4>
+          <ul class="footer-links">
+            <li><a href="pages/roadmap.html">Learning Roadmaps</a></li>
+            <li><a href="pages/resume.html">Resume ATS Checklist</a></li>
+            <li><a href="pages/dashboard.html">Job Readiness Dashboard</a></li>
+            <li><a href="pages/profile.html">User Profile &amp; Settings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Data &amp; Integrity</h4>
+          <ul class="footer-links">
+            <li><a href="pages/profile.html">Export Data (JSON)</a></li>
+            <li><a href="pages/profile.html">Privacy Guarantee</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project</a></li>
+            <li><span style="font-size:0.85rem; color:var(--text-muted);">Version 2.0 (Vanilla JS)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Careerly – AI Career Navigator. All rights reserved.
+        </div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="pages/profile.html" style="color:var(--text-muted);">Privacy</a>
+          <a href="pages/profile.html" style="color:var(--text-muted);">Terms</a>
+          <a href="pages/profile.html" style="color:var(--text-muted);">Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/icons.js"></script>
+  <script src="assets/vendor/chart.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate Popular Careers Preview
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("popular-careers-container");
+      if (container && window.CAREER_DATABASE) {
+        const topCareers = window.CAREER_DATABASE.slice(0, 3);
+        container.innerHTML = topCareers.map(c => `
+          <div class="card card-interactive" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+                <span class="badge badge-primary">${c.category}</span>
+                <span class="badge badge-success">${c.badge}</span>
+              </div>
+              <h3 style="font-size:1.25rem; margin-bottom:0.5rem; color:var(--text-main);">${c.title}</h3>
+              <p style="font-size:0.9rem; margin-bottom:1.25rem; line-height:1.5;">${c.tagline}</p>
+              
+              <div style="display:flex; gap:1rem; margin-bottom:1.25rem; font-size:0.85rem;">
+                <div>
+                  <div style="color:var(--text-muted); font-size:0.75rem; font-weight:600;">EST. SALARY</div>
+                  <strong style="color:var(--text-main);">${c.salaryRange.split('/')[0]}</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-muted); font-size:0.75rem; font-weight:600;">PROJECTED GROWTH</div>
+                  <strong style="color:var(--success);">${c.projectedGrowth.split(' ')[0]}</strong>
+                </div>
+              </div>
+
+              <div style="margin-bottom:1.5rem;">
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.4rem;">Key Tools</div>
+                <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+                  ${c.tools.slice(0, 4).map(t => `<span style="font-size:0.78rem; padding:0.2rem 0.5rem; background:var(--bg-subtle); border-radius:4px; color:var(--text-main);">${t}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:0.5rem; border-top:1px solid var(--border-color); padding-top:1rem;">
+              <button class="btn btn-secondary btn-sm" style="flex:1;" onclick="setTargetAndGo('${c.id}', 'pages/skill-gap.html')">
+                Skill Gap
+              </button>
+              <button class="btn btn-primary btn-sm" style="flex:1;" onclick="setTargetAndGo('${c.id}', 'pages/roadmap.html')">
+                Roadmap
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Quick Quiz Preview Handler
+      const quickBtn = document.getElementById("quick-quiz-submit");
+      const quickResult = document.getElementById("quick-quiz-result");
+      if (quickBtn && quickResult) {
+        quickBtn.addEventListener("click", () => {
+          const selected = document.querySelector('input[name="quick_quiz"]:checked');
+          if (!selected) return;
+
+          const career = window.CareerlyStorage.getCareerById(selected.value);
+          if (career) {
+            quickResult.style.display = "block";
+            quickResult.innerHTML = `
+              <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem;">
+                <span style="font-size:1.1rem;">🎯</span>
+                <strong style="color:var(--primary); font-size:1rem;">Top Alignment: ${career.title} (95% Match)</strong>
+              </div>
+              <p style="font-size:0.88rem; color:var(--text-main); margin-bottom:0.75rem;">
+                ${career.overview}
+              </p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <button class="btn btn-primary btn-sm" onclick="setTargetAndGo('${career.id}', 'pages/skill-gap.html')">
+                  Select as Target Career &amp; Analyze Gap
+                </button>
+                <a href="pages/assessment.html" class="btn btn-secondary btn-sm">
+                  Take Full 8-Question Assessment
+                </a>
+              </div>
+            `;
+          }
+        });
+      }
+    });
+
+    function setTargetAndGo(careerId, targetUrl) {
+      if (window.CareerlyStorage) {
+        window.CareerlyStorage.setTargetCareer(careerId);
+      }
+      window.location.href = targetUrl;
+    }
+  </script>
+</body>
+</html>

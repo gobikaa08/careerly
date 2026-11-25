@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careerly Skill Gap Analysis – Dynamically measure your current competency against tech role benchmarks and identify priority skills to learn.">
+  <title>Skill Gap Analysis – Careerly</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Careerly Homepage">
+        <img src="../assets/logo/logo.svg" alt="Careerly Logo" class="brand-logo-img" width="160" height="42">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="assessment.html" class="nav-link">Assessment</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="skill-gap.html" class="nav-link active">Skill Gap</a></li>
+          <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="header-readiness-pill" class="badge badge-primary" style="cursor:pointer;" onclick="location.href='dashboard.html'">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+          <!-- Populated by JS -->
+        </button>
+
+        <a href="profile.html" class="btn btn-secondary btn-sm">
+          Profile
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="assessment.html" class="nav-link">Career Assessment</a></li>
+      <li><a href="careers.html" class="nav-link">Career Explorer</a></li>
+      <li><a href="skill-gap.html" class="nav-link active">Skill Gap Analysis</a></li>
+      <li><a href="roadmap.html" class="nav-link">Learning Roadmap</a></li>
+      <li><a href="resume.html" class="nav-link">Resume Improvement</a></li>
+      <li><a href="dashboard.html" class="nav-link">Job Readiness Dashboard</a></li>
+      <li><a href="profile.html" class="nav-link">Profile &amp; Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1.5rem; margin-bottom:2.5rem;">
+        <div>
+          <div class="badge badge-primary" style="margin-bottom:0.5rem;">Diagnostic Engine</div>
+          <h1>Target Career Skill Gap Analysis</h1>
+          <p style="margin-top:0.5rem; font-size:1.05rem; max-width:640px;">
+            Rate your hands-on proficiency in each required technical competency. Careerly compares your capabilities against production benchmarks to build your tailored learning roadmap.
+          </p>
+        </div>
+
+        <!-- Career Selector Dropdown -->
+        <div class="card" style="padding:1rem 1.25rem; min-width:280px;">
+          <label for="target-career-select" style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.35rem; display:block;">
+            Analyze Career Track:
+          </label>
+          <select id="target-career-select" class="form-select" style="font-weight:600;">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Top Summary Metrics Grid -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; margin-bottom:2.5rem;">
+        <!-- Card 1: Overall Competency Percentage -->
+        <div class="card" style="display:flex; align-items:center; gap:1.25rem;">
+          <div style="width:54px; height:54px; border-radius:14px; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800;" id="metric-readiness-badge">
+            0%
+          </div>
+          <div>
+            <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Skill Readiness</div>
+            <strong style="font-size:1.25rem; color:var(--text-main);" id="metric-readiness-label">0% Calibrated</strong>
+          </div>
+        </div>
+
+        <!-- Card 2: Mastered Skills Count -->
+        <div class="card" style="display:flex; align-items:center; gap:1.25rem;">
+          <div style="width:54px; height:54px; border-radius:14px; background:var(--success-light); color:var(--success); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800;" id="metric-mastered-count">
+            0
+          </div>
+          <div>
+            <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Mastered / Benchmark Met</div>
+            <strong style="font-size:1.25rem; color:var(--text-main);" id="metric-mastered-label">0 of 8 Skills</strong>
+          </div>
+        </div>
+
+        <!-- Card 3: Skills Requiring Focus -->
+        <div class="card" style="display:flex; align-items:center; gap:1.25rem;">
+          <div style="width:54px; height:54px; border-radius:14px; background:var(--warning-light); color:var(--warning); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800;" id="metric-gaps-count">
+            0
+          </div>
+          <div>
+            <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High-Priority Gaps</div>
+            <strong style="font-size:1.25rem; color:var(--text-main);" id="metric-gaps-label">Requires Attention</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout: Skills List & Radar Visualization -->
+      <div style="display:grid; grid-template-columns:1.35fr 0.95fr; gap:2rem; align-items:flex-start;" id="gap-layout-grid">
+        
+        <!-- Left Column: Interactive Skill Rating Matrix -->
+        <div class="card" style="padding:2rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h3 style="font-size:1.35rem; color:var(--text-main);">Required Competencies</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.25rem;">
+                Click your current mastery level for each skill:
+              </p>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-secondary btn-sm" id="preset-beginner-btn" title="Set all to Beginner">
+                Beginner
+              </button>
+              <button class="btn btn-secondary btn-sm" id="preset-intermediate-btn" title="Set all to Intermediate">
+                Intermediate
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Skills Container -->
+          <div id="skills-matrix-container" style="display:flex; flex-direction:column; gap:1.25rem;">
+            <!-- Populated by skill-gap.js -->
+          </div>
+
+          <!-- Action Bar -->
+          <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div style="font-size:0.85rem; color:var(--text-muted);">
+              Changes auto-save locally to your profile.
+            </div>
+            <a href="roadmap.html" class="btn btn-primary" id="go-to-roadmap-btn">
+              Generate Tailored Roadmap →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Visual Radar & Priority Recommendations -->
+        <div style="display:flex; flex-direction:column; gap:1.75rem;">
+          
+          <!-- Competency Radar Chart Card -->
+          <div class="card" style="padding:1.75rem; text-align:center;">
+            <h4 style="font-size:1.15rem; margin-bottom:0.4rem; color:var(--text-main);">Competency Benchmark Radar</h4>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.25rem; display:flex; justify-content:center; gap:1rem;">
+              <span style="display:flex; align-items:center; gap:0.35rem;">
+                <span style="width:10px; height:10px; border-radius:50%; background:var(--primary);"></span> Your Level
+              </span>
+              <span style="display:flex; align-items:center; gap:0.35rem;">
+                <span style="width:10px; height:10px; border-radius:50%; background:var(--secondary); border:1px dashed var(--secondary);"></span> Target Benchmark
+              </span>
+            </div>
+
+            <div style="position:relative; width:100%; height:260px; max-width:340px; margin:0 auto;">
+              <canvas id="skill-gap-radar-canvas" width="340" height="260"></canvas>
+            </div>
+          </div>
+
+          <!-- High Priority Skills to Learn Next -->
+          <div class="card" style="padding:1.75rem;">
+            <div class="badge badge-warning" style="margin-bottom:0.75rem;">High Yield Actions</div>
+            <h4 style="font-size:1.15rem; margin-bottom:0.5rem; color:var(--text-main);">Recommended Skills to Learn Next</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.25rem;">
+              These represent your largest deficit gaps relative to industry hiring expectations:
+            </p>
+
+            <div id="priority-gaps-container" style="display:flex; flex-direction:column; gap:0.75rem;">
+              <!-- Populated by skill-gap.js -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2026 Careerly – AI Career Navigator. All rights reserved.</div>
+        <div><a href="../index.html">Back to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/icons.js"></script>
+  <script src="../assets/vendor/chart.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/skill-gap.js"></script>
+</body>
+</html>

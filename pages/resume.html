@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careerly Resume Improvement – Dynamic ATS audit checklist, real-time resume score, recruiter formatting guidelines, and live preview builder.">
+  <title>Resume Improvement – Careerly</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #resume-preview-sheet, #resume-preview-sheet * {
+        visibility: visible;
+      }
+      #resume-preview-sheet {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Careerly Homepage">
+        <img src="../assets/logo/logo.svg" alt="Careerly Logo" class="brand-logo-img" width="160" height="42">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="assessment.html" class="nav-link">Assessment</a></li>
+          <li><a href="careers.html" class="nav-link">Careers</a></li>
+          <li><a href="skill-gap.html" class="nav-link">Skill Gap</a></li>
+          <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+          <li><a href="resume.html" class="nav-link active">Resume</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="header-readiness-pill" class="badge badge-primary" style="cursor:pointer;" onclick="location.href='dashboard.html'">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+          <!-- Populated by JS -->
+        </button>
+
+        <a href="profile.html" class="btn btn-secondary btn-sm">
+          Profile
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="assessment.html" class="nav-link">Career Assessment</a></li>
+      <li><a href="careers.html" class="nav-link">Career Explorer</a></li>
+      <li><a href="skill-gap.html" class="nav-link">Skill Gap Analysis</a></li>
+      <li><a href="roadmap.html" class="nav-link">Learning Roadmap</a></li>
+      <li><a href="resume.html" class="nav-link active">Resume Improvement</a></li>
+      <li><a href="dashboard.html" class="nav-link">Job Readiness Dashboard</a></li>
+      <li><a href="profile.html" class="nav-link">Profile &amp; Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1.5rem; margin-bottom:2.5rem;">
+        <div>
+          <div class="badge badge-primary" style="margin-bottom:0.5rem;">ATS Optimization Suite</div>
+          <h1>Resume Audit &amp; Optimization</h1>
+          <p style="margin-top:0.5rem; font-size:1.05rem; max-width:640px;">
+            Audit your resume against 32 rigorous recruiting criteria. Score ATS compatibility, eliminate formatting traps, and preview a recruiter-ready document.
+          </p>
+        </div>
+
+        <!-- Mode Toggle Switch (Checklist vs Live Preview) -->
+        <div style="display:flex; gap:0.5rem; background:var(--bg-subtle); padding:0.35rem; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+          <button class="btn btn-sm btn-primary" id="view-tab-audit">
+            Audit Checklist
+          </button>
+          <button class="btn btn-sm btn-secondary" id="view-tab-preview">
+            Live Resume Preview
+          </button>
+        </div>
+      </div>
+
+      <!-- Resume Score Card Banner -->
+      <div class="card" style="margin-bottom:2.5rem; padding:2rem; background:var(--bg-surface); border:2px solid var(--border-focus); box-shadow:var(--shadow-md);">
+        <div style="display:grid; grid-template-columns:auto 1fr auto; gap:2rem; align-items:center;" id="score-banner-grid">
+          
+          <!-- Radial Score Gauge -->
+          <div class="gauge-container" style="width:110px; height:110px;">
+            <svg class="gauge-svg" width="110" height="110" viewBox="0 0 100 100">
+              <circle class="gauge-bg" cx="50" cy="50" r="42" stroke-width="9" fill="none"></circle>
+              <circle class="gauge-fill" id="resume-gauge-circle" cx="50" cy="50" r="42" stroke-width="9" fill="none" stroke-dasharray="264" stroke-dashoffset="264"></circle>
+            </svg>
+            <div class="gauge-text">
+              <span class="gauge-value" id="resume-score-number" style="font-size:1.8rem;">0%</span>
+            </div>
+          </div>
+
+          <!-- Score Rating Details -->
+          <div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">ATS OPTIMIZATION SCORE</div>
+            <h2 style="font-size:1.6rem; color:var(--text-main); margin:0.25rem 0;" id="resume-grade-text">
+              Needs Immediate Attention
+            </h2>
+            <p style="font-size:0.92rem; color:var(--text-muted);" id="resume-summary-text">
+              Complete the checklist items below to improve your score and unlock competitive status.
+            </p>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div style="display:flex; flex-direction:column; gap:0.5rem; min-width:180px;">
+            <button class="btn btn-primary btn-sm" id="check-all-btn">
+              ✓ Check All (Demo)
+            </button>
+            <button class="btn btn-secondary btn-sm" id="reset-checklist-btn">
+              🔄 Reset Checklist
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 1: AUDIT CHECKLIST SECTION -->
+      <div id="section-audit-view">
+        <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:2rem; align-items:flex-start;" id="audit-layout-grid">
+          
+          <!-- Left Column: Categorized Checklist -->
+          <div style="display:flex; flex-direction:column; gap:1.75rem;" id="checklist-categories-container">
+            <!-- Populated dynamically by resume.js -->
+          </div>
+
+          <!-- Right Column: Priority Improvement Recommendations -->
+          <div style="display:flex; flex-direction:column; gap:1.75rem; position:sticky; top:90px;">
+            
+            <div class="card" style="padding:1.75rem;">
+              <div class="badge badge-warning" style="margin-bottom:0.75rem;">High Impact Fixes</div>
+              <h3 style="font-size:1.25rem; margin-bottom:0.4rem; color:var(--text-main);">Top Suggestions for Score Boost</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.25rem;">
+                Tackling these missing items will yield the highest percentage jump in your ATS readiness:
+              </p>
+
+              <div id="top-suggestions-container" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <!-- Populated dynamically by resume.js -->
+              </div>
+            </div>
+
+            <!-- Recruiter Golden Rules Card -->
+            <div class="card" style="padding:1.75rem; background:var(--bg-subtle);">
+              <h4 style="font-size:1.05rem; margin-bottom:0.75rem; color:var(--text-main);">Recruiter Pro Tips</h4>
+              <ul style="font-size:0.85rem; color:var(--text-main); padding-left:1.2rem; display:flex; flex-direction:column; gap:0.5rem;">
+                <li><strong>Always use the XYZ Formula:</strong> "Accomplished [X] as measured by [Y], by doing [Z]".</li>
+                <li><strong>Avoid Multi-Columns:</strong> ATS parsers read left-to-right across columns, scrambling content.</li>
+                <li><strong>No Embedded Icons:</strong> Don't place phone or email icons inside graphic circles.</li>
+                <li><strong>Keywords Count:</strong> Mirror exact skill phrases from the job posting (e.g. "TypeScript", "PostgreSQL").</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VIEW 2: LIVE RESUME PREVIEW & BUILDER SECTION -->
+      <div id="section-preview-view" style="display:none;" class="animate-fade-in">
+        
+        <!-- Action Toolbar -->
+        <div class="card resume-actions-bar" style="margin-bottom:1.5rem; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div style="font-size:0.92rem; font-weight:600; color:var(--text-main);">
+            ATS Single-Column Clean Format (Recruiter Approved)
+          </div>
+          <div style="display:flex; gap:0.75rem;">
+            <button class="btn btn-secondary btn-sm" id="copy-plain-text-btn">
+              📋 Copy Plain Text
+            </button>
+            <button class="btn btn-primary btn-sm" id="print-resume-btn">
+              🖨️ Print / Save as PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Resume Sheet Container -->
+        <div id="resume-preview-sheet" class="card" style="max-width:820px; margin:0 auto; padding:3.5rem 3rem; background:#FFFFFF; color:#0F172A; border:1px solid #CBD5E1; box-shadow:var(--shadow-xl); font-family:'Inter', sans-serif;">
+          
+          <!-- Header -->
+          <div style="text-align:center; border-bottom:1.5px solid #0F172A; padding-bottom:1.25rem; margin-bottom:1.5rem;">
+            <h1 style="font-size:2rem; font-weight:800; color:#0F172A; margin-bottom:0.25rem;" id="doc-fullname">
+              Alex Morgan
+            </h1>
+            <div style="font-size:1.1rem; font-weight:600; color:#4F46E5; margin-bottom:0.5rem;" id="doc-jobtitle">
+              Full-Stack Software Engineer
+            </div>
+            <div style="font-size:0.85rem; color:#475569; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;" id="doc-contact-line">
+              <span>alex.morgan@careerly.dev</span> • 
+              <span>+1 (555) 234-5678</span> • 
+              <span>San Francisco, CA / Remote</span> • 
+              <span style="font-weight:600; color:#4F46E5;">linkedin.com/in/alexmorgan-dev</span> • 
+              <span style="font-weight:600; color:#4F46E5;">github.com/alexmorgan-code</span>
+            </div>
+          </div>
+
+          <!-- Professional Summary -->
+          <div style="margin-bottom:1.5rem;">
+            <h3 style="font-size:0.95rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; color:#0F172A; border-bottom:1px solid #E2E8F0; padding-bottom:0.25rem; margin-bottom:0.5rem;">
+              Professional Summary
+            </h3>
+            <p style="font-size:0.9rem; line-height:1.6; color:#1E293B;" id="doc-summary">
+              Dedicated Full-Stack Developer with practical experience engineering responsive web applications, RESTful APIs, and relational database schemas. Proven ability to bridge scalable backend architectures with accessible, intuitive user interfaces.
+            </p>
+          </div>
+
+          <!-- Core Technical Skills -->
+          <div style="margin-bottom:1.5rem;">
+            <h3 style="font-size:0.95rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; color:#0F172A; border-bottom:1px solid #E2E8F0; padding-bottom:0.25rem; margin-bottom:0.5rem;">
+              Technical Competencies
+            </h3>
+            <p style="font-size:0.9rem; line-height:1.6; color:#1E293B;" id="doc-skills">
+              <strong>Languages &amp; Core:</strong> JavaScript (ES6+), TypeScript, HTML5, CSS3, Modern SQL, Python Basics<br>
+              <strong>Frameworks &amp; Tools:</strong> React, Node.js, Express, PostgreSQL, Prisma, Docker, Git, Tailwind CSS, Vercel
+            </p>
+          </div>
+
+          <!-- Featured Projects -->
+          <div style="margin-bottom:1.5rem;">
+            <h3 style="font-size:0.95rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; color:#0F172A; border-bottom:1px solid #E2E8F0; padding-bottom:0.25rem; margin-bottom:0.75rem;">
+              Highlighted Engineering Projects
+            </h3>
+            
+            <div id="doc-projects-list" style="display:flex; flex-direction:column; gap:1.25rem;">
+              <!-- Populated by resume.js -->
+            </div>
+          </div>
+
+          <!-- Education & Credentials -->
+          <div>
+            <h3 style="font-size:0.95rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; color:#0F172A; border-bottom:1px solid #E2E8F0; padding-bottom:0.25rem; margin-bottom:0.5rem;">
+              Education &amp; Certifications
+            </h3>
+            <div style="font-size:0.9rem; color:#1E293B; display:flex; justify-content:space-between; flex-wrap:wrap;">
+              <strong>B.S. in Computer Science / Software Systems</strong>
+              <span style="color:#64748B;">State University • Graduated 2026</span>
+            </div>
+            <div style="font-size:0.85rem; color:#475569; margin-top:0.25rem;">
+              Relevant Coursework: Data Structures &amp; Algorithms, Database Systems, Web Architecture, Cloud Computing
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2026 Careerly – AI Career Navigator. All rights reserved.</div>
+        <div><a href="../index.html">Back to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/icons.js"></script>
+  <script src="../assets/vendor/chart.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/resume.js"></script>
+</body>
+</html>

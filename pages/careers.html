@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careerly Career Explorer – Search and explore high-growth tech careers, core skills, tool stacks, responsibilities, and progression ladders.">
+  <title>Career Explorer – Careerly</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Careerly Homepage">
+        <img src="../assets/logo/logo.svg" alt="Careerly Logo" class="brand-logo-img" width="160" height="42">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="assessment.html" class="nav-link">Assessment</a></li>
+          <li><a href="careers.html" class="nav-link active">Careers</a></li>
+          <li><a href="skill-gap.html" class="nav-link">Skill Gap</a></li>
+          <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="header-readiness-pill" class="badge badge-primary" style="cursor:pointer;" onclick="location.href='dashboard.html'">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+          <!-- Populated by JS -->
+        </button>
+
+        <a href="profile.html" class="btn btn-secondary btn-sm">
+          Profile
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="assessment.html" class="nav-link">Career Assessment</a></li>
+      <li><a href="careers.html" class="nav-link active">Career Explorer</a></li>
+      <li><a href="skill-gap.html" class="nav-link">Skill Gap Analysis</a></li>
+      <li><a href="roadmap.html" class="nav-link">Learning Roadmap</a></li>
+      <li><a href="resume.html" class="nav-link">Resume Improvement</a></li>
+      <li><a href="dashboard.html" class="nav-link">Job Readiness Dashboard</a></li>
+      <li><a href="profile.html" class="nav-link">Profile &amp; Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      
+      <!-- Explorer Header -->
+      <div style="margin-bottom: 2.5rem;">
+        <div class="badge badge-primary" style="margin-bottom: 0.5rem;">Tech Career Database</div>
+        <h1>Explore Tech Career Trajectories</h1>
+        <p style="margin-top: 0.5rem; font-size: 1.05rem; max-width: 680px;">
+          Search industry benchmark profiles, compare salary bands and required competencies, and set your target career with one click.
+        </p>
+      </div>
+
+      <!-- Search & Filter Controls Bar -->
+      <div class="card" style="margin-bottom: 2.5rem; padding: 1.5rem;">
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; align-items: center;" id="search-bar-grid">
+          <!-- Search Input -->
+          <div style="position: relative;">
+            <input type="text" id="career-search-input" class="form-input" placeholder="Search by role, skill (e.g. React, Python, SQL), or tool..." style="padding-left: 2.5rem;">
+            <div style="position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+          </div>
+
+          <!-- Category Select -->
+          <div>
+            <select id="career-category-filter" class="form-select">
+              <option value="all">All Categories</option>
+              <option value="software">Software &amp; Web Development</option>
+              <option value="data-ai">Data, AI &amp; Machine Learning</option>
+              <option value="design">Design &amp; User Experience</option>
+              <option value="cloud-security">Cloud, DevOps &amp; Security</option>
+              <option value="product">Product &amp; Project Management</option>
+              <option value="marketing">Marketing &amp; Growth</option>
+            </select>
+          </div>
+
+          <!-- Sort Select -->
+          <div>
+            <select id="career-sort-select" class="form-select">
+              <option value="featured">Sort: Featured</option>
+              <option value="growth">Sort: Highest Growth</option>
+              <option value="salary">Sort: Top Salary Band</option>
+              <option value="difficulty">Sort: Difficulty Level</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color);" id="category-pills">
+          <button class="badge badge-primary pill-btn active" data-cat="all" style="cursor:pointer; border:none;">All Tracks</button>
+          <button class="badge pill-btn" data-cat="software" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">Software Engineering</button>
+          <button class="badge pill-btn" data-cat="data-ai" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">AI &amp; Data</button>
+          <button class="badge pill-btn" data-cat="design" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">UI/UX Design</button>
+          <button class="badge pill-btn" data-cat="cloud-security" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">Cloud &amp; DevOps</button>
+          <button class="badge pill-btn" data-cat="product" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">Product Management</button>
+          <button class="badge pill-btn" data-cat="marketing" style="cursor:pointer; border:none; background:var(--bg-subtle); color:var(--text-main);">Growth &amp; SEO</button>
+        </div>
+      </div>
+
+      <!-- Current Active Target Alert Bar -->
+      <div id="target-career-alert" class="card" style="margin-bottom: 2rem; background: var(--primary-light); border-color: var(--border-focus); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Career Grid -->
+      <div id="careers-grid-container" class="careers-grid">
+        <!-- Rendered by careers.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="careers-empty-state" style="display: none; text-align: center; padding: 4rem 1rem;">
+        <img src="../assets/images/empty-state.svg" alt="No careers found" width="200" height="150" style="margin-bottom: 1.5rem;">
+        <h3>No matching careers found</h3>
+        <p style="margin-top: 0.5rem; color: var(--text-muted);">Try adjusting your search keywords or clearing the category filter.</p>
+        <button class="btn btn-secondary btn-sm" id="reset-filters-btn" style="margin-top: 1rem;">
+          Reset Filters
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Career Detail Modal -->
+  <div class="modal-overlay" id="career-detail-modal" aria-hidden="true">
+    <div class="modal-content" style="max-width: 780px;">
+      <div class="modal-header">
+        <div id="modal-category-badge" class="badge badge-primary">Category</div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div id="modal-body-content">
+        <!-- Injected dynamically by careers.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2026 Careerly – AI Career Navigator. All rights reserved.</div>
+        <div><a href="../index.html">Back to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/icons.js"></script>
+  <script src="../assets/vendor/chart.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/careers.js"></script>
+</body>
+</html>
