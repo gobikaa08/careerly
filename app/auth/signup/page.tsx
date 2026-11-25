@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, formatAuthErrorMessage } from "@/lib/supabase/client";
 import { ArrowRight, CheckCircle2, AlertCircle, Lock, Mail, User } from "lucide-react";
 
 export default function SignupPage() {
@@ -39,6 +39,7 @@ export default function SignupPage() {
         email,
         password,
         options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=/upload`,
           data: {
             full_name: fullName,
           },
@@ -57,7 +58,7 @@ export default function SignupPage() {
         setSuccess(true);
       }
     } catch (err: any) {
-      setError(err.message || "Failed to create account. Please check your details.");
+      setError(formatAuthErrorMessage(err, "Failed to create account. Please check your details."));
     } finally {
       setLoading(false);
     }

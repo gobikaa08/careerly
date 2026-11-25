@@ -3,7 +3,7 @@
 import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, formatAuthErrorMessage } from "@/lib/supabase/client";
 import { ArrowRight, AlertCircle, Lock, Mail } from "lucide-react";
 
 function LoginForm() {
@@ -38,7 +38,7 @@ function LoginForm() {
         router.refresh();
       }
     } catch (err: any) {
-      setError(err.message || "Invalid email or password.");
+      setError(formatAuthErrorMessage(err, "Invalid email or password."));
     } finally {
       setLoading(false);
     }

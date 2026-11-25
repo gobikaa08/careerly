@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, formatAuthErrorMessage } from "@/lib/supabase/client";
 import { Mail, CheckCircle2, AlertCircle, ArrowLeft } from "lucide-react";
 
 export default function ResetPasswordPage() {
@@ -28,7 +28,7 @@ export default function ResetPasswordPage() {
 
       setSuccess(true);
     } catch (err: any) {
-      setError(err.message || "Failed to send password reset email.");
+      setError(formatAuthErrorMessage(err, "Failed to send password reset email."));
     } finally {
       setLoading(false);
     }
